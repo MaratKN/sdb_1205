@@ -19,7 +19,7 @@ where date(p.payment_date) = '2005-07-30' and p.payment_date = r.rental_date and
 - перечислите узкие места;
 - оптимизируйте запрос: внесите корректировки по использованию операторов, при необходимости добавьте индексы.
 
-![alt text](https://github.com/MaratKN/sdb_1205/blob/main/2.jpg)
+![alt text](https://github.com/MaratKN/sdb_1205/blob/main/23.jpg)
 
 Оконная функция обрабатывает лишние таблицы: inventory, rental и film. Нет смысла присоединять и обрабатывать их, так как данные из этих таблиц дальше не используются, а все нужные данные есть в таблицах payment и customer
 
@@ -31,7 +31,7 @@ from payment p, customer c
 where date(p.payment_date) = '2005-07-30' and p.customer_id = c.customer_id 
 ```
 
-![alt text](https://github.com/MaratKN/sdb_1205/blob/main/3.jpg)
+![alt text](https://github.com/MaratKN/sdb_1205/blob/main/33.jpg)
 
 ### Дополнительные задания (со звёздочкой*)
 
