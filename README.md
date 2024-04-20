@@ -33,6 +33,21 @@ where date(p.payment_date) = '2005-07-30' and p.customer_id = c.customer_id
 
 ![alt text](https://github.com/MaratKN/sdb_1205/blob/main/3.jpg)
 
+Можно так же добавить индекс для столбца payment_date таблицы payment и заменить distinct на group by
+
+Другая версия оптимизированного запроса:
+
+```
+SELECT CONCAT(c.last_name, ' ', c.first_name) AS full_name,
+       SUM(p.amount) AS total_amount
+FROM payment p
+INNER JOIN customer c ON p.customer_id = c.customer_id
+WHERE DATE(p.payment_date) = '2005-07-30'
+GROUP BY c.customer_id, c.last_name, c.first_name;
+```
+
+![alt text](https://github.com/MaratKN/sdb_1205/blob/main/4.jpg)
+
 ### Дополнительные задания (со звёздочкой*)
 
 Эти задания дополнительные, то есть не обязательные к выполнению, и никак не повлияют на получение вами зачёта по этому домашнему заданию. Вы можете их выполнить, если хотите глубже шире разобраться в материале.
